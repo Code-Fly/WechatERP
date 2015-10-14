@@ -1,0 +1,35 @@
+<?xml version="1.0"	encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC	"-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- classPathEntry:数据库的JDBC驱动,换成你自己的驱动位置 -->
+		<classPathEntry location="C:\Users\Administrator.USER-20140521NL\git\WechatERP\WebRoot\WEB-INF\lib\sqljdbc4.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<property name="autoDelimitKeywords" value="true"/>
+		<property name="beginningDelimiter" value="`"/>
+		<property name="endingDelimiter" value="`"/> 
+		<!-- 去除自动生成的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" connectionURL="jdbc:sqlserver://218.204.17.244:1433;DatabaseName=zs"
+			userId="zs" password="123">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- targetProject:自动生成代码的位置 -->
+		<javaModelGenerator targetPackage="com.flycode.person.entity" targetProject="WechatERP">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.flycode.person.sqlmap" targetProject="WechatERP">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.flycode.person.mapper" targetProject="WechatERP">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+		<table tableName="SCM_project_2" domainObjectName="Person" />
+
+	</context>
+</generatorConfiguration>
