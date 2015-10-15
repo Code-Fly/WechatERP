@@ -43,7 +43,7 @@
 	</bean>
 	
 	
-	<tx:advice id="meituanTxAdvice" transaction-manager="transactionManager">
+	<tx:advice id="flycodeTxAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="delete*" propagation="REQUIRED"
 				rollback-for="java.lang.Exception" />
@@ -60,8 +60,8 @@
 	
 	<aop:config>
 		<aop:pointcut id="pc"
-			expression="execution(* com.meituan.*.*.service.imp(..))" />
-		<aop:advisor pointcut-ref="pc" advice-ref="meituanTxAdvice" />
+			expression="execution(* com.flycode.*.*.service.imp(..))" />
+		<aop:advisor pointcut-ref="pc" advice-ref="flycodeTxAdvice" />
 	</aop:config>  -->
 	
 	<!-- Mybatis Configuration -->
@@ -73,11 +73,11 @@
 	<!-- JDBC Template -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath*:/com/meituan/**/sqlmap/*.xml" />
+		<property name="mapperLocations" value="classpath*:/com/flycode/**/sqlmap/*.xml" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.meituan" />
+		<property name="basePackage" value="com.flycode" />
 	</bean>
 	
 
