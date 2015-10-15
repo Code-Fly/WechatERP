@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.flycode.alliance.entity.CPAllianceExample;
 import com.flycode.alliance.service.iface.CPAllianceService;
 import com.flycode.base.controller.BaseController;
 
@@ -26,7 +27,9 @@ public class CommonController extends BaseController {
  @ResponseBody
  @RequestMapping(method = RequestMethod.GET,value = "/cpAlliance")
  public String getCPAlliance(){
-	 return JsonUtil.jsonArray2Sting(cpAllianceService.selectByExample(null));
+	 CPAllianceExample cpEx = new CPAllianceExample();
+	 cpEx.or().andIdNotEqualTo(-1);
+	 return JsonUtil.jsonArray2Sting(cpAllianceService.selectByExample(cpEx));
  }	
  
 }

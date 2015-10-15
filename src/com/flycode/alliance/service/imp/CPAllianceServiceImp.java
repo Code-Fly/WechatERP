@@ -26,7 +26,7 @@ public class CPAllianceServiceImp implements CPAllianceService {
 
 	@Override
 	public List<CPAlliance> selectByExample(CPAllianceExample example) {
-		return cpAllianceMapper.selectByExample(null);
+		return cpAllianceMapper.selectByExample(example);
 	}
 
 }
